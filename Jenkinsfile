@@ -9,7 +9,7 @@ pipeline {
     stages{
         stage('Checkout') {
             steps{
-                 git changelog: false, poll: false, url: 'https://github.com/marcelorbp/myproduct.git'
+                 git changelog: false, poll: false, url: 'https://github.com/marcelorbp/music.git'
             }
         }
         stage('Build') {
