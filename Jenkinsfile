@@ -12,23 +12,16 @@ pipeline {
                  git changelog: false, poll: false, url: 'https://github.com/marcelorbp/myproduct.git'
             }
         }
-        stage('Compile') {
+        stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
-                archiveArtifacts 'target/*.xml'
+                sh 'node test'
             }
         }
-        stage('Package') {
-            steps {
-                sh 'mvn package'
-                archiveArtifacts 'target/*.jar'
-            }
-         }
         stage('Deploy') {
             steps {
                 echo 'Deploy somewhere!'
